@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="iGreen.HomePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewData="clr-namespace:iGreen.ViewModel"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <viewData:HomViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Transparent" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="layoutPage">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="ShowAnimationHandel"
+                        FontSize="30"
+                        Text="☰"
+                        WidthRequest="50" />
+                    <Image
+                        HorizontalOptions="CenterAndExpand"
+                        Source="ic_textLogo"
+                        TranslationX="-30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ShowDetails" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <CollectionView
+                    x:Name="listView"
+                    BackgroundColor="Transparent"
+                    HorizontalScrollBarVisibility="Never"
+                    ItemsSource="{Binding homeData}"
+                    SelectionChanged="listView_SelectionChanged"
+                    SelectionMode="Single"
+                    VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout x:Name="StackListView" Padding="10">
+                                <Frame
+                                    BackgroundColor="Transparent"
+                                    BorderColor="#4AB992"
+                                    CornerRadius="25">
+                                    <Image Aspect="AspectFit" Source="{Binding ImageName}" />
+                                </Frame>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding Name}"
+                                    TextColor="Black" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout x:Name="animationView" IsVisible="False">
+                <Image
+                    x:Name="logoanimation"
+                    Aspect="AspectFit"
+                    HeightRequest="75"
+                    Source="ic_logo"
+                    TranslationY="75"
+                    WidthRequest="75" />
+                <forms:AnimationView
+                    x:Name="animation"
+                    Animation="forest.json"
+                    AutoPlay="True"
+                    HorizontalOptions="FillAndExpand"
+                    Loop="False"
+                    OnFinish="Handle_OnFinish"
+                    TranslationY="55"
+                    VerticalOptions="EndAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="iGreen.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid
+        Padding="0,50,0,0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <CarouselView x:Name="TheCarousel" CurrentItemChanged="TheCarousel_CurrentItemChanged">
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>screen1</x:String>
+                    <x:String>screen2</x:String>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Image
+                            Aspect="AspectFit"
+                            HorizontalOptions="FillAndExpand"
+                            Source="{Binding .}"
+                            VerticalOptions="FillAndExpand" />
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <IndicatorView
+            HorizontalOptions="Center"
+            IndicatorColor="LightGray"
+            IndicatorSize="12"
+            IndicatorView.ItemsSourceBy="TheCarousel"
+            SelectedIndicatorColor="Green"
+            TranslationY="-15"
+            VerticalOptions="End" />
+        <Button
+            x:Name="NextBtn"
+            Grid.Row="0"
+            BackgroundColor="Transparent"
+            Clicked="GoToMenuPageHandler"
+            HorizontalOptions="End"
+            Text="Next"
+            TextColor="White"
+            VerticalOptions="End" />
+    </Grid>
+
+</ContentPage>

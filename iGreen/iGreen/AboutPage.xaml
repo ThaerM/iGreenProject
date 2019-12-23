@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="iGreen.AboutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:iGreen.ViewModel"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <view:AboutViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                <Button
+                    BackgroundColor="Transparent"
+                    Clicked="Button_Clicked"
+                    Text="Back"
+                    TextColor="#4AB992" />
+                <Image Source="ic_textLogo.png" />
+            </StackLayout>
+            <Image
+                Grid.Row="1"
+                HorizontalOptions="Start"
+                Source="ic_bg"
+                TranslationX="-65"
+                TranslationY="50"
+                VerticalOptions="EndAndExpand" />
+            <ListView
+                Grid.Row="1"
+                HasUnevenRows="True"
+                HorizontalOptions="FillAndExpand"
+                ItemsSource="{Binding AboutCollection}"
+                SelectionMode="None"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                HeightRequest="75"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal">
+                                <Image
+                                    HeightRequest="75"
+                                    Source="{Binding IconItem}"
+                                    WidthRequest="75" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding DetailItem}"
+                                    VerticalTextAlignment="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
