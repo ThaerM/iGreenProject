@@ -18,23 +18,24 @@ namespace iGreen
         {
             if ((string)e.CurrentItem == "screen2")
             {
-                NextBtn.IsVisible = true;
-                NextBtn.Opacity = 0;
-                await NextBtn.FadeTo(1, 350);
-
+                NextBtnRecycle.IsVisible = true;
+                NextBtnReuse.IsVisible = true;
             }
             else
             {
-                NextBtn.Opacity = 1;
-                await NextBtn.FadeTo(0, 350);
-                NextBtn.IsVisible = false;
-
+                NextBtnRecycle.IsVisible = false;
+                NextBtnReuse.IsVisible = false;
             }
         }
 
         private void GoToMenuPageHandler(object sender, EventArgs e)
         {
             Application.Current.MainPage = new NavigationPage(new HomePage());
+        }
+
+        private void GoToReusePageHandler(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new AboutPage());
         }
     }
 }

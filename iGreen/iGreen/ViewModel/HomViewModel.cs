@@ -244,20 +244,7 @@ namespace iGreen.ViewModel
                                 new Details(){NameDetails="•	Wood." },
                                 new Details(){NameDetails="•	Furniture: broken chair, bed frame, mirror, shelf." }
                             }
-                        },
-                        new FactoryDataModel()
-                        {
-                            Icon="ic_ReTire.png",
-                            Name="Re.tire.jo",
-                            Poster="ReTire_Location.png",
-                            NameStreet="Re.tire.jo,+Nemr+Al-Edwan+St.+21,+Amman",
-                            letudeLocation=31.911811,
-                            longtudeLoacation=35.937999,
-                            details=new System.Collections.Generic.List<Details>()
-                            {
-                                new Details(){NameDetails="•	Tires."}
-                            }
-                        }
+                        } 
                     }
                 }
             };

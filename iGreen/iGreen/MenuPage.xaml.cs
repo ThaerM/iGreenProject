@@ -19,7 +19,12 @@ namespace iGreen
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            Application.Current.MainPage = new NavigationPage(new HomePage());
+        }
+
+        private void GoToReusePageHandler(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new AboutPage());
         }
     }
 }

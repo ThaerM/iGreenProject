@@ -39,14 +39,23 @@
             TranslationY="-15"
             VerticalOptions="End" />
         <Button
-            x:Name="NextBtn"
+            x:Name="NextBtnRecycle"
             Grid.Row="0"
             BackgroundColor="Transparent"
             Clicked="GoToMenuPageHandler"
-            HorizontalOptions="End"
-            Text="Next"
+            HeightRequest="300"
+            HorizontalOptions="FillAndExpand"
             TextColor="White"
-            VerticalOptions="End" />
+            VerticalOptions="StartAndExpand" />
+        <Button
+            x:Name="NextBtnReuse"
+            Grid.Row="0"
+            BackgroundColor="Transparent"
+            Clicked="GoToReusePageHandler"
+            HeightRequest="300"
+            HorizontalOptions="FillAndExpand"
+            TextColor="White"
+            VerticalOptions="EndAndExpand" />
     </Grid>
 
 </ContentPage>

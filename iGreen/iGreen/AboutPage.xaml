@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:view="clr-namespace:iGreen.ViewModel"
     BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.BindingContext>
         <view:AboutViewModel />
@@ -14,15 +15,16 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
+                <RowDefinition Height="55" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <StackLayout Grid.Row="0" Orientation="Horizontal">
                 <Button
                     BackgroundColor="Transparent"
                     Clicked="Button_Clicked"
-                    Text="Back"
-                    TextColor="#4AB992" />
+                    FontSize="30"
+                    Text="☰"
+                    WidthRequest="50" />
                 <Image Source="ic_textLogo.png" />
             </StackLayout>
             <Image
@@ -34,9 +36,11 @@
                 VerticalOptions="EndAndExpand" />
             <ListView
                 Grid.Row="1"
+                BackgroundColor="Transparent"
                 HasUnevenRows="True"
                 HorizontalOptions="FillAndExpand"
                 ItemsSource="{Binding AboutCollection}"
+                RefreshControlColor="Transparent"
                 SelectionMode="None"
                 VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate>

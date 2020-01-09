@@ -5,42 +5,34 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    BackgroundColor="#49BBB3"
+    BackgroundImageSource="screen2"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout Padding="15" Spacing="15">
-            <Image Source="ic_textLogo.png" >
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer  Tapped="Button_Clicked"/>
-                </Image.GestureRecognizers>
-            </Image>
-
+        <StackLayout Padding="25">
             <Button
+                x:Name="NextBtnRecycle"
+                Grid.Row="0"
                 BackgroundColor="Transparent"
-                BorderColor="White"
-                BorderWidth="2"
-                CornerRadius="15"
-                Text="Recycle"
                 Clicked="Button_Clicked"
+                HeightRequest="250"
+                HorizontalOptions="FillAndExpand"
                 TextColor="White"
-                VerticalOptions="CenterAndExpand" />
+                VerticalOptions="StartAndExpand" />
             <Button
+                x:Name="NextBtnReuse"
+                Grid.Row="0"
                 BackgroundColor="Transparent"
-                BorderColor="White"
-                BorderWidth="2"
-                CornerRadius="15"
-                Clicked="Button_Clicked"
-                Text="Reuse"
-                TextColor="White"
-                VerticalOptions="CenterAndExpand" />
-
-            <Button
-                BackgroundColor="Transparent"
-                HorizontalOptions="Center"
-                Text="Use iGreen to save the Green."
-                Clicked="Button_Clicked"
+                Clicked="GoToReusePageHandler"
+                HeightRequest="250"
+                HorizontalOptions="FillAndExpand"
                 TextColor="White"
                 VerticalOptions="EndAndExpand" />
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="         Use iGreen to save the Green."
+                TextColor="Gray"
+                VerticalOptions="EndAndExpand" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
