@@ -1,2 +1,2 @@
-# iGreenProject for Studnet class 10
-iGreen project for student - Class 10
+# iGreen Project for students 10th grade
+iGreen for students 10th grade
