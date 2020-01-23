@@ -1,2 +1,2 @@
 # iGreenProject
-iGreen
+iGreen project for student - Class 10
